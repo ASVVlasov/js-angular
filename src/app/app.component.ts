@@ -6,5 +6,10 @@ import { Component } from '@angular/core';
 	styleUrls: ['./app.component.less'],
 })
 export class AppComponent {
-	title = 'js-angular';
+	public title: string = 'Интернет магазин';
+	public sidemenuOpened = true;
+
+	public onMenuClick(): void {
+		this.sidemenuOpened = !this.sidemenuOpened;
+	}
 }
