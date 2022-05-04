@@ -7,7 +7,8 @@
 			"projectType": "application",
 			"schematics": {
 				"@schematics/angular:component": {
-					"style": "scss"
+					"style": "less",
+					"displayBlock": true
 				},
 				"@schematics/angular:application": {
 					"strict": true
@@ -25,9 +26,9 @@
 						"main": "src/main.ts",
 						"polyfills": "src/polyfills.ts",
 						"tsConfig": "tsconfig.app.json",
-						"inlineStyleLanguage": "scss",
+						"inlineStyleLanguage": "less",
 						"assets": ["src/favicon.ico", "src/assets"],
-						"styles": ["./node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css", "src/styles.scss"],
+						"styles": ["./node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css", "src/styles.less"],
 						"scripts": []
 					},
 					"configurations": {
@@ -88,9 +89,9 @@
 						"polyfills": "src/polyfills.ts",
 						"tsConfig": "tsconfig.spec.json",
 						"karmaConfig": "karma.conf.js",
-						"inlineStyleLanguage": "scss",
+						"inlineStyleLanguage": "less",
 						"assets": ["src/favicon.ico", "src/assets"],
-						"styles": ["./node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css", "src/styles.scss"],
+						"styles": ["./node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css", "src/styles.less"],
 						"scripts": []
 					}
 				},
@@ -104,7 +105,8 @@
 		}
 	},
 	"defaultProject": "js-angular",
-	"cli": {
+  "cli": {
+    "analytics": "bcaabbaa-4c0d-4de3-99b9-7d43d8120fdd",
 		"defaultCollection": "@angular-eslint/schematics"
 	}
 }

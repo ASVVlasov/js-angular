@@ -9,7 +9,7 @@
     "test": "ng test",
     "prettier": "prettier --write",
     "lint": "ng lint",
-    "prepare": "husky install"
+    "prepare": "husky install && chmod ug+x .husky/*"
   },
   "private": true,
   "dependencies": {
