@@ -1,15 +1,13 @@
 <app-header [title]="title" (menuClick)="onMenuClick()">
 </app-header>
-<app-sidenav [(opened)]="sidemenuOpened">
-	<mat-list>
-		<mat-list-item> Pepper </mat-list-item>
-		<mat-list-item> Salt </mat-list-item>
-		<mat-list-item> Paprika </mat-list-item>
-	</mat-list>
-	<mat-form-field class="search-input" appearance="fill">
-		<mat-label>Search</mat-label>
-		<input #searchInput matInput>
-	</mat-form-field>
-	{{searchInput.value}}
+<app-sidenav>
+  <app-product-list></app-product-list>
+  <ng-template #navList>
+    <mat-list #list role="list">
+      <mat-list-item role="listitem">Item 1</mat-list-item>
+      <mat-list-item role="listitem">Item 2</mat-list-item>
+      <mat-list-item role="listitem">Item 3</mat-list-item>
+    </mat-list>
+  </ng-template>
 </app-sidenav>
 <app-footer></app-footer>

@@ -1,15 +1,18 @@
-import { Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, ViewChild } from '@angular/core';
+import { SidenavComponent } from './components/sidenav/sidenav.component';
 
 @Component({
-	selector: 'app-root',
-	templateUrl: './app.component.html',
-	styleUrls: ['./app.component.less'],
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.less'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class AppComponent {
-	public title: string = 'Интернет магазин';
-	public sidemenuOpened = true;
+  public title: string = 'Интернет магазин';
 
-	public onMenuClick(): void {
-		this.sidemenuOpened = !this.sidemenuOpened;
-	}
+  @ViewChild(SidenavComponent, { static: true }) private sideNavComponent!: SidenavComponent;
+
+  public onMenuClick(): void {
+    this.sideNavComponent.onToggleSideNav();
+  }
 }
