@@ -1,0 +1,19 @@
+<mat-form-field class="search-input" appearance="fill">
+  <mat-label>Search</mat-label>
+  <input #searchInput matInput>
+</mat-form-field>
+{{searchInput.value}}
+<div
+  *ngIf="(products$ | async); else loadingStub"
+  class="products-container"
+>
+  <app-product-card
+    *ngFor="let product of (products$ | async); trackBy: trackByName"
+    class="product-card"
+    [product]="product"
+  ></app-product-card>
+</div>
+
+<ng-template #loadingStub>
+  <mat-spinner></mat-spinner>
+</ng-template>

@@ -1,5 +1,3 @@
 {
-  "*.{ts,js}": [
-  "npm run prettier"
-]
+  "*.{ts,js}": ["npm run prettier"]
 }
