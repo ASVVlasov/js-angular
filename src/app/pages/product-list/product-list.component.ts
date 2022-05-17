@@ -9,16 +9,12 @@ import { map, Observable, startWith, switchMap, timer } from 'rxjs';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ProductListComponent implements OnInit {
-  public products!: IProduct[];
+  public products$!: Observable<IProduct[]>;
 
   constructor(private cdr: ChangeDetectorRef) {}
 
   ngOnInit(): void {
-    this.getProducts$().subscribe((products: IProduct[]) => {
-      this.products = products;
-
-      this.cdr.markForCheck();
-    });
+    this.products$ = this.getProducts$();
   }
 
   public trackByName(index: number, product: { name: string }): string {

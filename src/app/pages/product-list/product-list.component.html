@@ -4,11 +4,11 @@
 </mat-form-field>
 {{searchInput.value}}
 <div
-  *ngIf="products; else loadingStub"
+  *ngIf="(products$ | async); else loadingStub"
   class="products-container"
 >
   <app-product-card
-    *ngFor="let product of products; trackBy: trackByName"
+    *ngFor="let product of (products$ | async); trackBy: trackByName"
     class="product-card"
     [product]="product"
   ></app-product-card>
