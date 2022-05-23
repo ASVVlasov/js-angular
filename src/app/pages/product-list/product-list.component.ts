@@ -1,7 +1,7 @@
 import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { Observable } from 'rxjs';
 import { IProduct } from 'src/app/shared/interfaces/product.interface';
-import { ProductService } from '../../shared/services/product.service';
+import { ProductService } from '@shared/services/product.service';
 
 @Component({
   selector: 'app-product-list',
