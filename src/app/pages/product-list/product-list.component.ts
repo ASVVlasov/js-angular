@@ -1,6 +1,7 @@
-import { Component, OnInit, ChangeDetectionStrategy, ChangeDetectorRef } from '@angular/core';
-import { IProduct, PRODUCTS } from './product.interface';
-import { map, Observable, startWith, switchMap, timer } from 'rxjs';
+import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
+import { Observable } from 'rxjs';
+import { IProduct } from 'src/app/shared/interfaces/product.interface';
+import { ProductService } from '@shared/services/product.service';
 
 @Component({
   selector: 'app-product-list',
@@ -9,19 +10,15 @@ import { map, Observable, startWith, switchMap, timer } from 'rxjs';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ProductListComponent implements OnInit {
-  public products$!: Observable<IProduct[]>;
+  public products$: Observable<IProduct[] | null> = this.productService.products$;
 
-  constructor(private cdr: ChangeDetectorRef) {}
+  constructor(private productService: ProductService) {}
 
   ngOnInit(): void {
-    this.products$ = this.getProducts$();
+    this.productService.loadProducts();
   }
 
   public trackByName(index: number, product: { name: string }): string {
     return product.name;
-  }
-
-  private getProducts$(): Observable<IProduct[]> {
-    return timer(3000).pipe(map(() => PRODUCTS));
   }
 }
